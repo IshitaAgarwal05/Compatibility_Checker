@@ -89,43 +89,50 @@ def calculate_final_compatibility(chat_history):
     return min(round(final_score, 2), 100)
 
 # 🚀 Streamlit UI
-st.title("💬 Compatibility Checker")
-st.write("Check compatibility with your friends based on chat vibes and dedication!")
-st.write("And privacy ki chinta nahi karna, kyunki humne database banane ki mehnat nahi ki hai 😂")
-name1 = st.text_input("Name of Person 1:")
-name2 = st.text_input("Name of Person 2:")
-chat_history = st.text_area("Paste your full chat history:")
+def streamlit_ui():
+    st.title("💬 Compatibility Checker")
+    st.write("Check compatibility with your friends based on chat vibes and dedication!")
+    st.write("And privacy ki chinta nahi karna, kyunki humne database banane ki mehnat nahi ki hai 😂")
+    name1 = st.text_input("Name of Person 1:")
+    name2 = st.text_input("Name of Person 2:")
+    chat_history = st.text_area("Paste your full chat history:")
 
-if st.button("Check Compatibility"):
-    if name1 and name2 and chat_history:
-        # Split chats based on names
-        chat1 = '\n'.join(re.findall(rf'{name1}: .*', chat_history))
-        chat2 = '\n'.join(re.findall(rf'{name2}: .*', chat_history))
-        
-        if chat1 and chat2:
-            score = calculate_final_compatibility(chat_history)
-            dedication1 = calculate_dedication(chat_history, name1)
-            dedication2 = calculate_dedication(chat_history, name2)
-            total_messages = dedication1 + dedication2
-            dedication1_percentage = (dedication1 / total_messages) * 100 if total_messages else 0
-            dedication2_percentage = (dedication2 / total_messages) * 100 if total_messages else 0
+    if st.button("Check Compatibility"):
+        if name1 and name2 and chat_history:
+            # Split chats based on names
+            chat1 = '\n'.join(re.findall(rf'{name1}: .*', chat_history))
+            chat2 = '\n'.join(re.findall(rf'{name2}: .*', chat_history))
+            
+            if chat1 and chat2:
+                score = calculate_final_compatibility(chat_history)
+                dedication1 = calculate_dedication(chat_history, name1)
+                dedication2 = calculate_dedication(chat_history, name2)
+                total_messages = dedication1 + dedication2
+                dedication1_percentage = (dedication1 / total_messages) * 100 if total_messages else 0
+                dedication2_percentage = (dedication2 / total_messages) * 100 if total_messages else 0
 
-            st.success(f"Your Compatibility Score: {score}%")
+                st.success(f"Your Compatibility Score: {score}%")
 
-            # Dedication Levels
-            st.subheader("📊 Dedication Levels:")
-            st.write(f"- {name1}: {dedication1_percentage:.2f}%")
-            st.write(f"- {name2}: {dedication2_percentage:.2f}%")
+                # Dedication Levels
+                st.subheader("📊 Dedication Levels:")
+                st.write(f"- {name1}: {dedication1_percentage:.2f}%")
+                st.write(f"- {name2}: {dedication2_percentage:.2f}%")
 
-            # Result Message
-            if score > 75:
-                st.balloons()
-                st.write("🎉 You both vibe perfectly!")
-            elif score > 50:
-                st.write("🙂 Pretty good connection!")
+                # Result Message
+                if score > 75:
+                    st.balloons()
+                    st.write("🎉 You both vibe perfectly!")
+                elif score > 50:
+                    st.write("🙂 Pretty good connection!")
+                else:
+                    st.write("🤔 Hmm, thoda aur baat cheet karo!")
             else:
-                st.write("🤔 Hmm, thoda aur baat cheet karo!")
+                st.warning("Could not find enough chat data for both names. Double-check the names!")
         else:
-            st.warning("Could not find enough chat data for both names. Double-check the names!")
-    else:
-        st.warning("Please fill in all the inputs!")
+            st.warning("Please fill in all the inputs!")
+
+if __name__ == "__main__":
+    st.set_page_config(page_title="My Streamlit App", layout="wide")
+    import os
+    port = int(os.environ.get("PORT",8501))
+    streamlit_ui()

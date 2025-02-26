@@ -5,7 +5,7 @@
       "dest": "api/app.py"
     }
   ],
-  "builds": [
+  "functions": [
     {
       "src": "api/app.py",
       "use": "@vercel/python",

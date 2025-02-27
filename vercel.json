@@ -7,7 +7,7 @@
   ],
   "functions": {
     "api/app.py": {
-      "runtime": "python@3.10"
+      "runtime": "python3.10"
     }
   }
 }

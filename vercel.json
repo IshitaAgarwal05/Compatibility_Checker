@@ -7,7 +7,7 @@
   ],
   "functions": {
     "api/app.py": {
-      "runtime": "python3.10"
+      "runtime": "@vercel/python@3.10"
     }
   }
 }

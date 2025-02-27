@@ -5,8 +5,7 @@
       "dest": "api/app.py"
     }
   ],
-  "object":[
-
+  "object":
     {
       "src": "api/app.py",
       "use": "@vercel/python",
@@ -14,5 +13,5 @@
         "runtime": "python3.10"
       }
     }
-  ]
+  
 }

@@ -5,13 +5,9 @@
       "dest": "api/app.py"
     }
   ],
-  "object":
-    {
-      "src": "api/app.py",
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.10"
-      }
+  "functions": {
+    "api/app.py": {
+      "runtime": "python@3.10"
     }
-  
+  }
 }

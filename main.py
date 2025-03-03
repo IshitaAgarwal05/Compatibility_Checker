@@ -92,6 +92,7 @@ def calculate_final_compatibility(chat_history):
 # 🚀 Streamlit UI
 st.title("💬 Compatibility Checker")
 st.write("Check compatibility with your friends based on chat vibes and dedication!")
+st.write("And don't worry about your privacy, coz database banane ki mehnat nahi ki hai humne 😂")
 
 name1 = st.text_input("Name of Person 1:")
 name2 = st.text_input("Name of Person 2:")
@@ -130,3 +131,5 @@ if st.button("Check Compatibility"):
             st.warning("Could not find enough chat data for both names. Double-check the names!")
     else:
         st.warning("Please fill in all the inputs!")
+
+st.write("Developed by [Ishita Agarwal](https://github.com/IshitaAgarwal05)")

@@ -1,8 +1,9 @@
 # Compatibility_Checker
-Simple Chat - based relationship compatibility checker, made using NLP and python.
+Multi-lingual Simple Chat - based relationship compatibility checker, made using NLP and python.
 
 **About:**
 - A web app that calculates compatibility between two people based on their chats.
+- Works for all languages.
 - Base concept used: Natural Language Processing
 - Built using Streamlit for the front end.
 - Deployed on AWS EC2 for public access.

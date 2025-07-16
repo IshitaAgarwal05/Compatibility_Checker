@@ -7,12 +7,12 @@ charset-normalizer==3.4.2
 click==8.2.1
 gitdb==4.0.12
 GitPython==3.1.41
-googletrans
+googletrans==4.0.0-rc1
 idna==3.10
 Jinja2==3.1.6
 jsonschema==4.24.0
 jsonschema-specifications==2025.4.1
-langdetect
+langdetect==1.0.9
 MarkupSafe==3.0.2
 narwhals==1.47.0
 numpy==2.3.1
@@ -36,5 +36,5 @@ tornado==6.5.1
 typing_extensions==4.14.1
 tzdata==2025.2
 urllib3==2.5.0
-vaderSentiment.vaderSentiment
+vaderSentiment==3.3.2
 watchdog==6.0.0
